@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fed-aura-capital-rhai-workshop
+  title: fed-aura-capital-rhai-workshop
+  description: Default workshop used for AI Roadshows and many other customer
+    facing activities.
+  annotations:
+    ph.rhdp.io/content-type: lab
+    ph.rhdp.io/deployment-mode: rhdp_published
+    ph.rhdp.io/github-user: ritzshah
+    ph.rhdp.io/owner: rshah@redhat.com
+    ph.rhdp.io/migrated-repo: https://github.com/rhpds/agentops-in-prod-showroom.git
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: rhpds/fed-aura-capital-rhai-workshop
+    ph.rhdp.io/created-at: 2026-08-19T11:38:46.400Z
+  tags:
+    - publishing-house
+    - lab
+    - rhdp-published
+    - migration
+  links:
+    - url: https://github.com/rhpds/fed-aura-capital-rhai-workshop
+      title: Repository
+      icon: github
+    - url: https://devspaces.apps.ocpv-infra02.wdc07.infra.demo.redhat.com#https://github.com/rhpds/fed-aura-capital-rhai-workshop
+      title: Open in DevSpaces
+      icon: catalog
+    - url: https://central-api-publishing-house.apps.ocpv-infra02.wdc07.infra.demo.redhat.com
+      title: Central
+      icon: dashboard
+spec:
+  type: content
+  lifecycle: experimental
+  owner: rhdp-team
+  system: publishing-house
