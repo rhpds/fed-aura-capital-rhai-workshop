@@ -153,8 +153,24 @@ approval_checklist:
           An optional advanced module that automates the Module 5 evaluation into a Kubeflow-based
           RHOAI Data Science Pipeline, then detects a prompt regression (mandatory-to-optional tool-use
           change) before production, demonstrating the quality gate pattern for AI prompt management.
-    rcars_overlap_pct: null
-    rcars_top_matches: []
+    rcars_overlap_pct: 100
+    rcars_top_matches:
+      - title: "AgentOps in Production — AI Observability on OpenShift"
+        ci_name: "published.agentops-ocp.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=published.agentops-ocp.prod"
+        relevance_score: 100
+        why_it_fits: "Direct content match — same multi-agent mortgage application, same observability stack (Prometheus, LokiStack, Grafana, MLflow, Kubeflow Pipelines), same audience. 1,098 provisions/quarter."
+      - title: "LB2144: AI AgentOps OpenShift (AWS)"
+        ci_name: "summit-2026.lb2144-agentops-ocp-aws.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=summit-2026.lb2144-agentops-ocp-aws.prod"
+        relevance_score: 100
+        why_it_fits: "Summit 2026 AWS variant of the same content — all modules, same audience; event-scoped and AWS-backed rather than CNV."
+      - title: "Taking MCP Servers to Production on OpenShift AI with the Red Hat MCP Registry"
+        ci_name: "published.openshift-mcp-lab.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=published.openshift-mcp-lab.prod"
+        relevance_score: 37
+        why_it_fits: "Partial overlap on SRE/Platform Engineer audience and OpenShift AI observability; focuses on MCP governance/ToolHive rather than MLflow tracing or LLM evaluations."
+    catalog_gap: "The two 100% matches are existing catalog items derived from the same imported source content (agentops-in-prod-showroom). The Fed Aura Capital Workshop migration establishes the CNV-native, RHOAI 3.x successor on a durable catalog path; differentiation grows as end-to-end RHOAI modules beyond AgentOps are added in future development — coverage that does not exist anywhere in the catalog today."
     rejections: []
 
   infra:
