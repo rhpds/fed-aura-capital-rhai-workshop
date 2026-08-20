@@ -94,4 +94,4 @@ Intermediate
 - **Automation approach:** Ansible + GitOps (Helm + ArgoCD)
 - **AI/MaaS:** MaaS, open-source model (`gpt-oss-120b`, served via in-cluster LiteLLM endpoint)
 - **External services:** Unknown — to be confirmed during development/infra review (GitHub access required for Modules 5–6)
-- **Non-GA products:** None (all products are GA)
+- **Non-GA products:** Red Hat OpenShift AI 3.5 — not GA at intake time; expected to GA before catalog release but not confirmed. Pre-GA access via RHDP internal provisioning. Infra reviewer to validate GA status at staging time.

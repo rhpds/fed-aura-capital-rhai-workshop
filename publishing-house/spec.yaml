@@ -80,8 +80,9 @@ spec:
     ai_model_tier: "open-source"       # open-source | frontier (if ai_requirement = maas or gpu)
     ai_model_name: "gpt-oss-120b"      # specific model e.g. granite-3.1-8b
     ai_justification: ""               # required if ai_model_tier = frontier or ai_requirement = gpu
-    non_ga_products: []                # list of non-GA products/versions
-    non_ga_access_plan: ""             # how access is provided for non-GA products
+    non_ga_products:
+      - "Red Hat OpenShift AI 3.5"     # not GA at intake time; expected to GA before catalog release
+    non_ga_access_plan: "Pre-GA access via RHDP internal provisioning; anticipated to be GA before catalog item release, but not confirmed — infra reviewer to validate status at staging time"
     external_services: []              # unknown — to be confirmed during development/infra review
     gpu_nodes: 0                       # number of GPU nodes (0 = none)
     gpu_type: ""                       # e.g. NVIDIA A100 40GB (required if gpu_nodes > 0)
