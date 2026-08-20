@@ -23,8 +23,16 @@ common_password: >-
 
 config: openshift-workloads
 cloud_provider: none
-openshift_cnv_scale_cluster: false
-num_users: 15
+# Workers required for shared-cluster multi-user topology
+openshift_cnv_scale_cluster: true
+
+# num_users is a catalog parameter selected at deploy time (default 15, max 20)
+# Worker count is fixed at 3 nodes; adjust ai_workers_cores/memory at infra review
+# once per-user resource profiles are measured from a test deployment.
+worker_instance_count: 3
+ai_workers_cores: 64
+ai_workers_memory: 256Gi
+worker_only: true
 
 clusters:
 - default:
@@ -226,7 +234,17 @@ __meta__:
       Provider: RHDP
     reportingLabels:
       primaryBU: Hybrid_Platforms
+    multiuser: true
+    workshop_user_mode: multi
     parameters:
+    - name: num_users
+      description: "Number of users to provision within the shared cluster."
+      formLabel: "User Count"
+      openAPIV3Schema:
+        type: integer
+        default: 15
+        minimum: 1
+        maximum: 20
     - name: showroom_language
       description: "Select the language for your lab instructions."
       formLabel: "Select your lab instruction language"
@@ -236,11 +254,7 @@ __meta__:
         enum:
         - main
       variable: ocp4_workload_showroom_content_git_repo_ref
-    workshop_user_mode: single
 
-  # NOTE: Worker sizing is an initial estimate for 15 concurrent users sharing one cluster.
-  # Actual worker node count and resource profile will be confirmed during infra review
-  # once per-user workload resource profiles are measured from a test deployment.
   components:
   - name: openshift
     display_name: OpenShift Cluster
@@ -248,9 +262,7 @@ __meta__:
     parameter_values:
       cluster_size: multinode
       host_ocp4_installer_version: '4.20'
-      worker_instance_count: 3
-      worker_instance_cpu: 64
-      worker_instance_memory_mb: 262144
+      num_users: "{{ num_users }}"
     propagate_provision_data:
     - name: openshift_api_ca_cert
       var: openshift_api_ca_cert
