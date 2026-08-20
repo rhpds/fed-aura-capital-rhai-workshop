@@ -65,7 +65,7 @@ spec:
     control_plane_instance_count: 3    # 1 if sno, 3 if multinode
     control_plane_cpu: 16             # 32 if sno, 16 if multinode
     control_plane_ram_gb: 64          # 128 if sno, 64 if multinode
-    worker_count: null                 # confirmed from lb2144-agentops-ocp-cnv agnosticv CI at staging
+    worker_count: 0                    # compact multinode — 3 control plane run workloads, no separate workers (confirmed from agd_v2/ocp-cluster-cnv-pools)
     worker_cpu: null                   # vCPU per worker
     worker_ram_gb: null                # RAM per worker in GB
     worker_disk_gb: null               # disk per worker in GB

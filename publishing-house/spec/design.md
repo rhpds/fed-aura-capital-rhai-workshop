@@ -90,7 +90,7 @@ Intermediate
 - **Cluster type:** Multinode — RHOAI + LokiStack + Grafana requires multinode even for a single-user per-student environment; confirmed from `lb2144-agentops-ocp-cnv` agnosticv CI
 - **OCP version:** 4.20 (minimum)
 - **Topology:** Per-student
-- **Sizing:** Multinode — 3 control plane nodes (16 vCPU, 64GB RAM each); worker count and sizing TBD — to be confirmed by infra reviewer against `lb2144-agentops-ocp-cnv` agnosticv CI
+- **Sizing:** Compact multinode — 3 control plane nodes (16 vCPU, 64GB RAM each), 0 workers; control plane nodes run workloads (confirmed from `agd_v2/ocp-cluster-cnv-pools` with `cluster_size: multinode`)
 - **Automation approach:** Ansible + GitOps (Helm + ArgoCD)
 - **AI/MaaS:** MaaS, open-source model (`gpt-oss-120b`, served via in-cluster LiteLLM endpoint)
 - **External services:** Unknown — to be confirmed during development/infra review (GitHub access required for Modules 5–6)
