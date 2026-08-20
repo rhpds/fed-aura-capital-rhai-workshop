@@ -87,11 +87,15 @@ Intermediate
 ## Infrastructure Requirements
 
 - **Cloud provider:** CNV (on-premise)
-- **Cluster type:** Multinode — RHOAI + LokiStack + Grafana requires multinode even for a single-user per-student environment; confirmed from `lb2144-agentops-ocp-cnv` agnosticv CI
+- **Cluster type:** Multinode
 - **OCP version:** 4.20 (minimum)
-- **Topology:** Per-student
-- **Sizing:** Compact multinode — 3 control plane nodes (16 vCPU, 64GB RAM each), 0 workers; control plane nodes run workloads (confirmed from `agd_v2/ocp-cluster-cnv-pools` with `cluster_size: multinode`)
-- **Automation approach:** Ansible + GitOps (Helm + ArgoCD)
+- **Topology:** Shared-cluster — 15 concurrent users, each with a dedicated namespace (`wksp-userN`) provisioned via GitOps bootstrap-tenant (ArgoCD ApplicationSet); RHOAI, LokiStack, Grafana, and MLflow are shared cluster-level services
+- **Sizing (initial estimate — subject to revision):**
+  - Control plane: 3 nodes × 16 vCPU / 64 GB RAM (unchanged from compact multinode baseline)
+  - Workers: 3 nodes × 64 vCPU / 256 GB RAM each (4× per-node capacity of the control plane nodes)
+  - Total worker capacity: 192 vCPU / 768 GB RAM across 3 workers
+  - **Note:** Sizing will be confirmed and adjusted during infra review once per-user workload resource profiles are measured from a test deployment with 15 tenants
+- **Automation approach:** Ansible + GitOps (Helm + ArgoCD); bootstrap-infra deploys cluster-wide services; bootstrap-tenant (new) provisions per-user namespace and RBAC via ApplicationSet
 - **AI/MaaS:** MaaS, open-source model (`gpt-oss-120b`, served via in-cluster LiteLLM endpoint)
 - **External services:** Unknown — to be confirmed during development/infra review (GitHub access required for Modules 5–6)
 - **Non-GA products:** Red Hat OpenShift AI 3.5 — not GA at intake time; expected to GA before catalog release but not confirmed. Pre-GA access via RHDP internal provisioning. Infra reviewer to validate GA status at staging time.

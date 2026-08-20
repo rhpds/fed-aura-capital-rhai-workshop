@@ -24,7 +24,7 @@ common_password: >-
 config: openshift-workloads
 cloud_provider: none
 openshift_cnv_scale_cluster: false
-num_users: 1
+num_users: 15
 
 clusters:
 - default:
@@ -238,6 +238,9 @@ __meta__:
       variable: ocp4_workload_showroom_content_git_repo_ref
     workshop_user_mode: single
 
+  # NOTE: Worker sizing is an initial estimate for 15 concurrent users sharing one cluster.
+  # Actual worker node count and resource profile will be confirmed during infra review
+  # once per-user workload resource profiles are measured from a test deployment.
   components:
   - name: openshift
     display_name: OpenShift Cluster
@@ -245,6 +248,9 @@ __meta__:
     parameter_values:
       cluster_size: multinode
       host_ocp4_installer_version: '4.20'
+      worker_instance_count: 3
+      worker_instance_cpu: 64
+      worker_instance_memory_mb: 262144
     propagate_provision_data:
     - name: openshift_api_ca_cert
       var: openshift_api_ca_cert
