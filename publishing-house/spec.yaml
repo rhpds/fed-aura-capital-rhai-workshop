@@ -16,8 +16,8 @@ project:
   automation_type: "both"
   description: "Default workshop used for AI Roadshows and many other customer facing activities."
   # content_reviewer_email and infra_reviewer_email are assigned by the RHDP team — not set by the author
-  jira_ticket: ""
-  workflow_id: ""
+  jira_ticket: "RHDPCD-1081"
+  workflow_id: "b2c16559-e5a0-4b23-9afd-67b120529f85"
 
 spec:
   title: ""
