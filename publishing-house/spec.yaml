@@ -61,11 +61,11 @@ spec:
 
     # --- OCP-specific fields (only when platform = ocp) ---
     ocp_version: "4.20"                # e.g. 4.20 — minimum 4.20; leave empty for rhel-vms
-    cluster_type: "sno"                # sno | multinode — only for platform = ocp
-    control_plane_instance_count: 1    # 1 if sno, 3 if multinode
-    control_plane_cpu: 32              # 32 if sno, 16 if multinode
-    control_plane_ram_gb: 128          # 128 if sno, 64 if multinode
-    worker_count: 0                    # number of OCP worker nodes
+    cluster_type: "multinode"          # sno | multinode — RHOAI+LokiStack+Grafana requires multinode even for single user
+    control_plane_instance_count: 3    # 1 if sno, 3 if multinode
+    control_plane_cpu: 16             # 32 if sno, 16 if multinode
+    control_plane_ram_gb: 64          # 128 if sno, 64 if multinode
+    worker_count: null                 # confirmed from lb2144-agentops-ocp-cnv agnosticv CI at staging
     worker_cpu: null                   # vCPU per worker
     worker_ram_gb: null                # RAM per worker in GB
     worker_disk_gb: null               # disk per worker in GB

@@ -87,7 +87,7 @@ Intermediate
 ## Infrastructure Requirements
 
 - **Cloud provider:** CNV (on-premise)
-- **Cluster type:** SNO (Single Node OpenShift) — per-student topology; authoritative sizing in `lb2144-agentops-ocp-cnv` agnosticv CI
+- **Cluster type:** Multinode — RHOAI + LokiStack + Grafana requires multinode even for a single-user per-student environment; confirmed from `lb2144-agentops-ocp-cnv` agnosticv CI
 - **OCP version:** 4.20 (minimum)
 - **Topology:** Per-student
 - **Sizing:** 1 SNO node (~32 vCPU, ~128GB RAM) — to be confirmed by infra reviewer against agnosticv CI

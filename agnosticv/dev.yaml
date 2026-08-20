@@ -1,0 +1,31 @@
+---
+# -------------------------------------------------------------------
+# Purpose - Cost tag
+# -------------------------------------------------------------------
+purpose: development
+
+ocp4_workload_showroom_antora_enable_dev_mode: "true"
+
+# -------------------------------------------------------------------
+# LiteMaaS streaming fix — carry forward from lb2144 until resolved upstream
+# https://redhat.atlassian.net/browse/RHDPOPS-24028
+# -------------------------------------------------------------------
+ocp4_workload_gitops_bootstrap_repo_revision: fix/litemaas-streaming
+ocp4_workload_gitops_bootstrap_helm_values:
+  bootstrap:
+    targetRevision: fix/litemaas-streaming
+  deployer:
+    domain: "{{ openshift_cluster_ingress_domain }}"
+    apiUrl: "{{ openshift_api_url }}"
+  user:
+    count: "{{ num_users | default(1) }}"
+  remotellm:
+    id: "{{ llm_model }}"
+    url: "{{ litellm_api_endpoint }}"
+    apiToken: "{{ litellm_virtual_key }}"
+    enabled: true
+
+__meta__:
+  access_control:
+    allow_groups:
+    - rhpds-devs
