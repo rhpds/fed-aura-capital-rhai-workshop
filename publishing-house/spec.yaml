@@ -114,8 +114,45 @@ approval_checklist:
     prerequisites_verifiable: false   # "basic familiarity" prerequisites cannot be automatically validated
     assessment_strategy: ""
     catalog_gap: ""
-    design_overview: ""
-    module_summaries: []
+    design_overview: >-
+      This intermediate-level hands-on lab uses the Fed Aura Capital mortgage lending application —
+      a five-agent LangGraph system that debuted at Red Hat Summit 2026 — to teach AgentOps
+      observability using Red Hat OpenShift AI. Participants monitor AI-specific metrics with Grafana,
+      analyze structured logs with LokiStack, and trace end-to-end agent execution with MLflow;
+      optional modules add automated LLM evaluation pipelines via RHOAI Data Science Pipelines.
+      It replaces the Parasol Insurance AI workshop as the primary customer-facing vehicle for RHOAI 3.x adoption.
+    module_summaries:
+      - title: "The Agentic App and Why Observability Matters"
+        overview: >-
+          Students explore the pre-deployed Fed Aura Capital multi-agent mortgage application,
+          run CLI health checks, interact with the CEO agent persona to generate conversation data,
+          and experience the observability gap firsthand — the application is healthy by platform
+          metrics but its internal reasoning and tool calls are invisible.
+      - title: "Observability Pillars, Concepts, and Personas"
+        overview: >-
+          A conceptual module that maps the three observability pillars (metrics, logs, traces) to
+          specific operational questions in the mortgage AI system and distinguishes the different
+          observability needs of SRE vs. AI Developer personas.
+      - title: "Metrics and Logs for Agentic Applications"
+        overview: >-
+          Students navigate a pre-deployed Grafana dashboard displaying AI-specific metrics (LLM token
+          usage, inference latency, tool-call success rates) and then use LokiStack with LogQL to scope
+          and filter structured JSON logs from the multi-agent service.
+      - title: "Tracing and MLflow"
+        overview: >-
+          Students access the RHOAI MLflow tracking server and trace the CEO agent conversations from
+          Module 1 end-to-end — drilling into input/output shield spans, LLM calls with full
+          prompt/completion text, tool authorization decisions, and multi-turn session grouping.
+      - title: "Agent and LLM Evaluations (Optional)"
+        overview: >-
+          An optional advanced module where students launch a RHOAI Jupyter workbench, run an
+          evaluation notebook, register the prospect agent's prompt in the MLflow Prompt Registry,
+          build a six-case evaluation dataset, and execute both deterministic and LLM-as-a-Judge scorers.
+      - title: "From Development to Production (Optional)"
+        overview: >-
+          An optional advanced module that automates the Module 5 evaluation into a Kubeflow-based
+          RHOAI Data Science Pipeline, then detects a prompt regression (mandatory-to-optional tool-use
+          change) before production, demonstrating the quality gate pattern for AI prompt management.
     rcars_overlap_pct: null
     rcars_top_matches: []
     rejections: []
