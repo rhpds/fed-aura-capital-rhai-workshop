@@ -20,9 +20,39 @@ project:
   workflow_id: "b2c16559-e5a0-4b23-9afd-67b120529f85"
 
 spec:
-  title: ""
-  learning_objectives: []
-  modules: []              # [{id, title, duration_min}] — written by intake Phase 4; id is stable (e.g. module-01)
+  title: "Fed Aura Capital Workshop: AgentOps Observability with Red Hat OpenShift AI"
+  learning_objectives:
+    - "Explore a production-pattern multi-agent AI application and identify the observability gap that conventional monitoring tools cannot close"
+    - "Monitor AI-specific metrics and KPIs — including LLM token usage, inference latency, and tool-call success rates — using pre-deployed Grafana dashboards"
+    - "Analyze structured application logs for a multi-agent system using LokiStack and LogQL queries"
+    - "Configure and use MLflow tracing to capture end-to-end agent execution spans, from input/output shields through LLM calls and tool invocations"
+    - "Analyze agent traces to identify latency hotspots, failed tool calls, and multi-turn conversation context across user sessions"
+    - "Deploy an automated evaluation pipeline and verify prompt regression detection using Red Hat OpenShift AI Data Science Pipelines and MLflow Prompt Registry (optional)"
+  modules:
+    - id: module-01
+      title: "The Agentic App and Why Observability Matters"
+      duration_min: 25
+      status: not_started
+    - id: module-02
+      title: "Observability Pillars, Concepts, and Personas"
+      duration_min: 15
+      status: not_started
+    - id: module-03
+      title: "Metrics and Logs for Agentic Applications"
+      duration_min: 30
+      status: not_started
+    - id: module-04
+      title: "Tracing and MLflow"
+      duration_min: 35
+      status: not_started
+    - id: module-05
+      title: "Agent and LLM Evaluations (Optional)"
+      duration_min: 55
+      status: not_started
+    - id: module-06
+      title: "From Development to Production (Optional)"
+      duration_min: 55
+      status: not_started
   environment:
     platform: ""               # ocp | rhel-vms — determines which sizing fields apply
     topology: ""               # shared-cluster | per-student | cnv-pool
@@ -55,8 +85,8 @@ spec:
     external_services: []              # named external service dependencies e.g. [github.com]
     gpu_nodes: 0                       # number of GPU nodes (0 = none)
     gpu_type: ""                       # e.g. NVIDIA A100 40GB (required if gpu_nodes > 0)
-  duration_hours: null
-  audience: ""               # beginner | intermediate | advanced
+  duration_hours: 2           # core path (Modules 1-4); optional modules 5-6 add ~2 more hours
+  audience: "intermediate"   # beginner | intermediate | advanced
 
 development:
   automation:
@@ -81,7 +111,7 @@ tracking:
 approval_checklist:
 
   content:
-    prerequisites_verifiable: null
+    prerequisites_verifiable: false   # "basic familiarity" prerequisites cannot be automatically validated
     assessment_strategy: ""
     catalog_gap: ""
     design_overview: ""
@@ -94,6 +124,6 @@ approval_checklist:
     peak_environments: null
     cost_per_run_est: ""
     provisioning_time_est: ""
-    agnosticv_base_ci: ""
+    agnosticv_base_ci: "lb2144-agentops-ocp-cnv"
     approved_by: ""
     rejections: []

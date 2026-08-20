@@ -1,89 +1,97 @@
-# [Project Title]
-
-<!-- This file is the design document for your lab or demo. -->
-<!-- Fill in each section below, or run /rhdp-publishing-house to have the intake skill help. -->
-<!-- Sections marked with [brackets] are placeholders — replace with real content. -->
-<!-- The validation gate checks for all required sections before submission. -->
+# Fed Aura Capital Workshop: AgentOps Observability with Red Hat OpenShift AI
 
 ## Overview
 
-[2-3 sentences on what this lab or demo is and why it exists. Then a direct description of what participants will do — specific enough that someone reading this section immediately understands the content without interpretation. No flowery language. Example: "Participants will deploy a 3-tier application on OpenShift, configure autoscaling, and troubleshoot a simulated pod failure."]
+This workshop replaces the Parasol Insurance AI workshop and serves as the primary customer-facing vehicle for Red Hat OpenShift AI 3.x adoption across pre-sales, proof-of-concept, and post-sales AI journeys. It uses the Fed Aura Capital mortgage lending application — a five-agent LangGraph system that debuted at the Red Hat Summit 2026 AI Spotlight keynote — to make AgentOps observability concrete and role-relevant. Participants work through six modules covering the full observability stack: they explore a running multi-agent application, apply the three observability pillars (metrics, logs, traces) to real agentic workloads, instrument and analyze MLflow traces, and (optionally) build and run automated LLM evaluation pipelines to catch prompt regressions before production.
 
 ## Target Audience
 
-- **Role:** [Data scientists, platform engineers, developers, etc.]
-- **Experience level:** [Beginner, intermediate, or advanced]
-- **What they already know:** [Existing skills and knowledge]
-- **What they don't know:** [Skills this lab teaches]
+- **Role:** Site Reliability Engineers (SREs), Platform Engineers, AI Developers / AI Engineers
+- **Experience level:** Intermediate
+- **What they already know:** Basic Kubernetes concepts (pods, namespaces, routes, `oc` CLI), basic familiarity with AI/ML terminology (agents, LLMs, inference)
+- **What they don't know:** How to apply observability practices to multi-agent AI systems; how to use MLflow tracing, Grafana dashboards, and LokiStack in the context of agentic applications; how to run LLM evaluations and detect regressions
 
 ## Prerequisites
 
-- [What the learner must know or have completed before starting]
-- [Can the lab validate these automatically? Yes/No — brief explanation]
-
-<!-- If no prerequisites, write "None" -->
+- Basic Kubernetes familiarity: comfortable navigating the OpenShift web console and running `oc` CLI commands
+- Basic AI/ML familiarity: understands what an LLM is and what "agent" means in an AI context
+- Basic Python literacy required for optional Modules 5–6 (reading and running Jupyter notebook cells)
+- No GPU provisioning or model training experience required
+- Prerequisites cannot be automatically validated by lab automation (declarative familiarity checks are not feasible)
 
 ## Learning Objectives
 
-1. [Action verb] [specific, measurable outcome]
-2. [Action verb] [specific, measurable outcome]
-3. [Action verb] [specific, measurable outcome]
-
-<!-- Scale to duration: up to 3 objectives per 45 min of content. Start with action verbs: Configure, Deploy, Create, Implement, Troubleshoot, Monitor, Scale. Each should be testable. NOT: Understand, Learn, Know. -->
+1. Explore a production-pattern multi-agent AI application and identify the observability gap that conventional monitoring tools cannot close
+2. Monitor AI-specific metrics and KPIs — including LLM token usage, inference latency, and tool-call success rates — using pre-deployed Grafana dashboards
+3. Analyze structured application logs for a multi-agent system using LokiStack and LogQL queries
+4. Configure and use MLflow tracing to capture end-to-end agent execution spans, from input/output shields through LLM calls and tool invocations
+5. Analyze agent traces to identify latency hotspots, failed tool calls, and multi-turn conversation context across user sessions
+6. Deploy an automated evaluation pipeline and verify prompt regression detection using Red Hat OpenShift AI Data Science Pipelines and MLflow Prompt Registry (optional)
 
 ## Content Type
 
-[Lab (hands-on) or Demo (presenter-led)]
+Lab (hands-on)
 
 ## Products & Technologies
 
-- [Official Red Hat product name with version if relevant]
-- [Additional products/technologies]
+**Red Hat Products:**
+- Red Hat OpenShift Container Platform
+- Red Hat OpenShift AI (includes MLflow tracking server, LokiStack, User Workload Monitoring, Data Science Pipelines, Jupyter workbenches)
 
-<!-- Use official names: "Red Hat OpenShift", not "OpenShift". List upstream projects separately. -->
+**Observability Stack (upstream):**
+- MLflow (Tracing, Evaluation, Prompt Registry, Sessions)
+- Grafana (dashboards via GrafanaDashboard CRD)
+- LokiStack (log aggregation and querying)
+- Prometheus / OpenShift User Workload Monitoring
+- OpenTelemetry
+
+**AI/ML Frameworks (upstream):**
+- LangGraph
+- LangChain
+- Kubeflow Pipelines (via RHOAI Data Science Pipelines)
+- Model Context Protocol (MCP)
+
+**Application Stack:**
+- FastAPI, React, PostgreSQL with pgvector, MinIO
 
 ## Module Map
 
 | Module | Title | Duration |
 |--------|-------|----------|
-| 1 | [Module title] | [XX min] |
-| 2 | [Module title] | [XX min] |
-| — | **Total hands-on** | **[X hours]** |
-| — | Intro / presentation | [~XX min] |
-| — | **Total lab** | **[~X hours]** |
-
-<!-- Each module 10-30 min. Total: lab 1-4 hours, demo 15-45 min. Modules should build on each other. -->
+| 1 | The Agentic App and Why Observability Matters | 25 min |
+| 2 | Observability Pillars, Concepts, and Personas | 15 min |
+| 3 | Metrics and Logs for Agentic Applications | 30 min |
+| 4 | Tracing and MLflow | 35 min |
+| 5 | Agent and LLM Evaluations (Optional) | 55 min |
+| 6 | From Development to Production (Optional) | 55 min |
+| — | **Core path total (Modules 1–4)** | **105 min (~1 hr 45 min)** |
+| — | **Full lab total (Modules 1–6)** | **215 min (~3 hr 35 min)** |
 
 ## Difficulty Level
 
-[Beginner, Intermediate, or Advanced]
+Intermediate
 
 ## Environment
 
-**Learner view:** [What exists when the lab starts — pre-deployed resources, what participants see and interact with. Be specific about cluster details.]
+**Learner view:** When the lab starts, participants log in to an OpenShift cluster with a pre-provisioned, per-user namespace. The Fed Aura Capital mortgage AI application is already deployed — five LangGraph agent personas running as a FastAPI service, with a React front end accessible via an OpenShift route. A shared MLflow tracking server is running and pre-configured with `mlflow.langchain.autolog()` enabled for the application. A Grafana instance with a pre-built Mortgage-AI dashboard (HTTP metrics + AI agentic metrics panels) is accessible. A LokiStack instance with OpenShift Logging is collecting structured JSON logs from all application pods. Participants immediately interact with the running application and observability stack; no cluster-level setup is required.
 
-**Automation needed:** [Yes/No]
-
-[If yes, list what automation must provision — operators, per-user resources, sample apps, data sets.]
+**Automation needed:** Yes. The following must be provisioned before lab start:
+- OCP cluster with RHOAI operator and all required components enabled (MLflow tracking server, LokiStack, User Workload Monitoring, Data Science Pipelines)
+- Grafana operator and GrafanaDashboard CRD with the Mortgage-AI dashboard deployed
+- Fed Aura Capital application deployed in per-user namespaces (FastAPI service, React front end, PostgreSQL with pgvector, MinIO)
+- MLflow tracking server with `mlflow.langchain.autolog()` pre-configured for the application
+- MaaS LLM endpoint configured via `llm-credentials` secret (model: gpt-oss-120b, internal in-cluster)
+- RHOAI Jupyter workbench image available for optional Modules 5–6
+- GitHub connectivity for students cloning `rh-ai-quickstart/multi-agent-loan-origination.git` (Modules 5–6)
 
 ## Infrastructure Requirements
 
-- **Cloud provider:** [CNV (default), AWS, or Troshka (bare-metal/nested virt)]
-- **Cluster type:** [Multinode or SNO (Single Node OpenShift)]
-- **OCP version:** [e.g. 4.20 — minimum 4.20]
-- **Topology:** [Shared cluster, per-student, or CNV pool]
-- **Sizing:** [Node types and counts with resources — e.g., "3 control plane (16 CPU, 64GB RAM), 6 workers (8 CPU, 32GB RAM, 100GB disk)"]
-- **Automation approach:** [Ansible, GitOps (Helm + ArgoCD), or combo]
-- **AI/MaaS:** [None, MaaS (open-source model), MaaS (frontier model), or dedicated GPU — include justification if not "none"]
-- **External services:** [Named services — e.g., github.com, registry.access.redhat.com — or "None"]
-- **AAP version:** [e.g. 2.5 — only if AAP is in products; omit otherwise]
-- **Non-GA products:** [Product name + version, with access plan — or "None (all products are GA)"]
-
-<!-- Not all fields must be known at intake. "TBD, estimating ~X" is fine. -->
-
-## Assessment Strategy (Optional)
-
-<!-- Optional — skip this section for demos or classic labs without verification. -->
-<!-- Relevant for Zero-Touch labs with solve/validate buttons or labs with automated checks. -->
-
-[If applicable: how will we know the learner successfully completed each module? Per module: verification script, solve/validate button, visible result in the UI, or automated check.]
+- **Cloud provider:** TBD — confirmed in infrastructure phase (reference base CI: lb2144-agentops-ocp-cnv)
+- **Cluster type:** TBD — confirmed in infrastructure phase
+- **OCP version:** TBD — confirmed in infrastructure phase
+- **Topology:** TBD — confirmed in infrastructure phase
+- **Sizing:** TBD — confirmed in infrastructure phase
+- **Automation approach:** TBD — confirmed in infrastructure phase
+- **AI/MaaS:** TBD — confirmed in infrastructure phase
+- **External services:** TBD — confirmed in infrastructure phase
+- **Non-GA products:** TBD — confirmed in infrastructure phase
