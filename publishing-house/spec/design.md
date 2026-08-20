@@ -86,12 +86,12 @@ Intermediate
 
 ## Infrastructure Requirements
 
-- **Cloud provider:** TBD — confirmed in infrastructure phase (reference base CI: lb2144-agentops-ocp-cnv)
-- **Cluster type:** TBD — confirmed in infrastructure phase
-- **OCP version:** TBD — confirmed in infrastructure phase
-- **Topology:** TBD — confirmed in infrastructure phase
-- **Sizing:** TBD — confirmed in infrastructure phase
-- **Automation approach:** TBD — confirmed in infrastructure phase
-- **AI/MaaS:** TBD — confirmed in infrastructure phase
-- **External services:** TBD — confirmed in infrastructure phase
-- **Non-GA products:** TBD — confirmed in infrastructure phase
+- **Cloud provider:** CNV (on-premise)
+- **Cluster type:** SNO (Single Node OpenShift) — per-student topology; authoritative sizing in `lb2144-agentops-ocp-cnv` agnosticv CI
+- **OCP version:** 4.20 (minimum)
+- **Topology:** Per-student
+- **Sizing:** 1 SNO node (~32 vCPU, ~128GB RAM) — to be confirmed by infra reviewer against agnosticv CI
+- **Automation approach:** Ansible + GitOps (Helm + ArgoCD)
+- **AI/MaaS:** MaaS, open-source model (`gpt-oss-120b`, served via in-cluster LiteLLM endpoint)
+- **External services:** Unknown — to be confirmed during development/infra review (GitHub access required for Modules 5–6)
+- **Non-GA products:** None (all products are GA)
