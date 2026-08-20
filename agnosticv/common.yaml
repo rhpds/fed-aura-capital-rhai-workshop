@@ -12,8 +12,8 @@
 #include /includes/parameters/purpose.yaml
 
 #include /includes/secrets/litemaas-master_api.yaml
-requester_email: fed-aura-capital-{{guid}}@demo.redhat.com
-catalog_item_name: fed-aura-capital.fed-aura-capital-workshop-cnv.{{stage | default('dev')}}
+requester_email: rhai-features-{{guid}}@demo.redhat.com
+catalog_item_name: rhai-features.rhai-features-workshop-cnv.{{stage | default('dev')}}
 
 # -------------------------------------------------------------------
 # AgnosticDv2 variables
@@ -139,7 +139,7 @@ ocp4_workload_litellm_virtual_keys_models:
 # ===================================================================
 # Workload: ocp4_workload_gitops_bootstrap
 # ===================================================================
-ocp4_workload_gitops_bootstrap_repo_url: https://github.com/rhpds/fed-aura-capital-rhai-workshop
+ocp4_workload_gitops_bootstrap_repo_url: https://github.com/rhpds/rhai-features-workshop
 ocp4_workload_gitops_bootstrap_repo_revision: main
 ocp4_workload_gitops_bootstrap_repo_path: automation/gitops/bootstrap-infra
 ocp4_workload_gitops_bootstrap_kustomize_envvar_plugin: false
@@ -159,7 +159,7 @@ ocp4_workload_gitops_bootstrap_helm_values:
 # Workload: ocp4_workload_showroom
 # ===================================================================
 ocp4_workload_showroom_antora_enable_dev_mode: "false"
-ocp4_workload_showroom_content_git_repo: https://github.com/rhpds/fed-aura-capital-rhai-workshop
+ocp4_workload_showroom_content_git_repo: https://github.com/rhpds/rhai-features-workshop
 ocp4_workload_showroom_content_git_repo_ref: main
 
 ocp4_workload_showroom_terminal_type: showroom
@@ -216,7 +216,7 @@ __meta__:
     category: Workshops
     namespace: babylon-catalog-{{ stage | default('?') }}
     keywords:
-    - fed-aura-capital
+    - rhai-features
     - agentops
     - openshift-ai
     - rhoai

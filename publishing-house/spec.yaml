@@ -6,7 +6,7 @@
 # TODO: Eliminate this copy — Scaffolder should pull from template repo directly.
 
 project:
-  slug: "fed-aura-capital-rhai-workshop"
+  slug: "rhai-features-workshop"
   owner_email: "rshah@redhat.com"
   content_type: "lab"
   deployment_mode: "rhdp_published"

@@ -3,7 +3,7 @@
 
 bootstrap:
   # Git repository URL
-  repoURL: https://github.com/rhpds/fed-aura-capital-rhai-workshop
+  repoURL: https://github.com/rhpds/rhai-features-workshop
   # Branch or tag to use
   targetRevision: main
 

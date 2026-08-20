@@ -1,4 +1,4 @@
-# fed-aura-capital-rhai-workshop
+# rhai-features-workshop
 
 Default workshop used for AI Roadshows and many other customer facing activities.
 
@@ -22,7 +22,7 @@ Claude will walk you through the entire content lifecycle — from intake and sp
 
 ### DevSpaces (recommended)
 
-1. Open in DevSpaces: `https://devspaces.apps.ocpv-infra02.wdc07.infra.demo.redhat.com#https://github.com/rhpds/fed-aura-capital-rhai-workshop`
+1. Open in DevSpaces: `https://devspaces.apps.ocpv-infra02.wdc07.infra.demo.redhat.com#https://github.com/rhpds/rhai-features-workshop`
 2. Use Claude via the **extension** or the **CLI**:
    - **Extension:** Click the **Claude** icon in the sidebar, click **New Session**. If the Claude icon is not visible, open **Extensions** (`Ctrl/Cmd+Shift+X`), find **Claude Code for VS Code** under the DevSpaces section, click it, then click **Enable (Workspace)**.
    - **CLI:** Open a terminal and run `claude`
@@ -36,8 +36,8 @@ Claude will walk you through the entire content lifecycle — from intake and sp
    ```
 2. Clone the repo:
    ```
-   git clone https://github.com/rhpds/fed-aura-capital-rhai-workshop
+   git clone https://github.com/rhpds/rhai-features-workshop
    ```
-3. `cd fed-aura-capital-rhai-workshop`
+3. `cd rhai-features-workshop`
 4. Start Claude CLI: `claude`
 5. Run `/rhdp-publishing-house` — and you're off!
