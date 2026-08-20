@@ -138,12 +138,10 @@ ocp4_workload_litellm_virtual_keys_models:
 
 # ===================================================================
 # Workload: ocp4_workload_gitops_bootstrap
-# TODO: update repo_url to point to the fed-aura-capital automation
-#       repo once it is created (currently reuses agentops-in-prod-automation).
 # ===================================================================
-ocp4_workload_gitops_bootstrap_repo_url: https://github.com/rhpds/agentops-in-prod-automation
+ocp4_workload_gitops_bootstrap_repo_url: https://github.com/rhpds/fed-aura-capital-rhai-workshop
 ocp4_workload_gitops_bootstrap_repo_revision: main
-ocp4_workload_gitops_bootstrap_repo_path: bootstrap
+ocp4_workload_gitops_bootstrap_repo_path: automation/gitops/bootstrap-infra
 ocp4_workload_gitops_bootstrap_kustomize_envvar_plugin: false
 ocp4_workload_gitops_bootstrap_helm_values:
   deployer:
