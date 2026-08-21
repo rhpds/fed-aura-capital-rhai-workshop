@@ -116,7 +116,6 @@ approval_checklist:
   content:
     prerequisites_verifiable: false   # "basic familiarity" prerequisites cannot be automatically validated
     assessment_strategy: ""
-    catalog_gap: ""
     design_overview: >-
       This intermediate-level hands-on lab uses the Fed Aura Capital mortgage lending application —
       a five-agent LangGraph system that debuted at Red Hat Summit 2026 — to teach AgentOps
@@ -162,7 +161,7 @@ approval_checklist:
         ci_name: "published.agentops-ocp.prod"
         url: "https://catalog.demo.redhat.com/catalog?item=published.agentops-ocp.prod"
         relevance_score: 100
-        why_it_fits: "Direct content match — same multi-agent mortgage application, same observability stack (Prometheus, LokiStack, Grafana, MLflow, Kubeflow Pipelines), same audience. 1,098 provisions/quarter."
+        why_it_fits: "Direct content match — same multi-agent mortgage application, same observability stack (Prometheus, LokiStack, Grafana, MLflow, Kubeflow Pipelines), same audience. 1,541 provisions/quarter."
       - title: "LB2144: AI AgentOps OpenShift (AWS)"
         ci_name: "summit-2026.lb2144-agentops-ocp-aws.prod"
         url: "https://catalog.demo.redhat.com/catalog?item=summit-2026.lb2144-agentops-ocp-aws.prod"
@@ -181,11 +180,11 @@ approval_checklist:
             collection: "agnosticd.core_workloads"
           - role: "ocp4_workload_showroom"
             collection: "agnosticd.showroom"
-      - title: "Taking MCP Servers to Production on OpenShift AI with the Red Hat MCP Registry"
-        ci_name: "published.openshift-mcp-lab.prod"
-        url: "https://catalog.demo.redhat.com/catalog?item=published.openshift-mcp-lab.prod"
-        relevance_score: 37
-        why_it_fits: "Partial overlap on SRE/Platform Engineer audience and OpenShift AI observability; focuses on MCP governance/ToolHive rather than MLflow tracing or LLM evaluations."
+      - title: "Agentic AI with Llama Stack and 3rd party Frameworks"
+        ci_name: "published.agentic-ai-openshift.prod"
+        url: "https://catalog.demo.redhat.com/catalog?item=published.agentic-ai-openshift.prod"
+        relevance_score: 44
+        why_it_fits: "Partial overlap on LangGraph and multi-agent AI on RHOAI; diverges on observability stack (uses Langfuse, not MLflow/LokiStack/Grafana) and lacks Data Science Pipelines coverage."
     catalog_gap: "The two 100% matches are existing catalog items derived from the same imported source content (agentops-in-prod-showroom). The Fed Aura Capital Workshop migration establishes the CNV-native, RHOAI 3.x successor on a durable catalog path; differentiation grows as end-to-end RHOAI modules beyond AgentOps are added in future development — coverage that does not exist anywhere in the catalog today."
     rejections: []
 
