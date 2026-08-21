@@ -16,8 +16,8 @@ project:
   automation_type: "both"
   description: "Default workshop used for AI Roadshows and many other customer facing activities."
   # content_reviewer_email and infra_reviewer_email are assigned by the RHDP team — not set by the author
-  jira_ticket: "RHDPCD-1081"
-  workflow_id: "b2c16559-e5a0-4b23-9afd-67b120529f85"
+  jira_ticket: "RHDPCD-1187"
+  workflow_id: "d5fb7218-8b36-4d55-b2e8-080e7bde1d9a"
 
 spec:
   title: "Fed Aura Capital Workshop: AgentOps Observability with Red Hat OpenShift AI"
