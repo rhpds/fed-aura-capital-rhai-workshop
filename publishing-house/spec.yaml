@@ -68,7 +68,7 @@ spec:
     worker_count: 3                    # 3 dedicated workers for 15-user shared cluster (4x per-node capacity vs control plane)
     worker_cpu: 64                     # 64 vCPU per worker (4x control plane node at 16 vCPU)
     worker_ram_gb: 256                 # 256 GB RAM per worker (4x control plane node at 64 GB)
-    worker_disk_gb: null               # disk per worker in GB — TBD at infra review
+    worker_disk_gb: 2500               # disk per worker in GB
     # NOTE: Worker sizing is an initial estimate for 15 concurrent users. Actual sizing will be
     # confirmed and adjusted during development/infra review once tenant resource profiles are known.
 
